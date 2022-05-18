@@ -1,0 +1,298 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     @TRIS_C
+021     sec
+022     min
+023     hrs
+024.0   Rebote
+024.1   Llenar
+024.2   NCritico
+025     Menu
+026-029 TempIn
+02A-02D TempOut
+02E     intTempIn
+02F     intTempOut
+030     Termostato
+031     HsOn
+032     HsOff
+033     MaxPower
+034     HsConfig
+035     MinConfig
+036     PotActual
+037     EstadoCritico
+038     ii
+039     CritExS1
+03A     CritExS2
+03B     CritErS1
+03C     CritErS2
+03D     MAIN.Aux
+03E     LeaAnalog.val
+03E     ds1307_set_time.hr
+03E-041 @PRINTF_L32D_90FPFPF.P1
+03E     ds1820_read2.busy
+03E     lcd_init.i
+03E-041 @SFTOI.P1
+03E     ds1820_read1.busy
+03E     Calefa.diferencia
+03E     ds1307_init.seconds
+03E     ds1307_get_time.@SCRATCH1
+03E     MAIN.@SCRATCH1
+03E     @PSTRINGC7_90.@SCRATCH1
+03E     Teclado.@SCRATCH1
+03E     Pantalla.@SCRATCH1
+03E     Automa.@SCRATCH1
+03E     Criticos.@SCRATCH1
+03F     LeaAnalog.V1
+03F     ds1820_read1.temp1
+03F     ds1307_set_time.min
+03F     Calefa.PromTemp
+03F     ds1820_read2.temp1
+03F     lcd_init.@SCRATCH1
+03F     ds1307_init.@SCRATCH1
+03F     @PSTRINGC7_90.@SCRATCH2
+03F     Teclado.@SCRATCH2
+03F     Pantalla.@SCRATCH2
+03F     Automa.@SCRATCH2
+040     @PRINTF_D_90.P1
+040     @PRINTF_D0_90.P2
+040     @PSTRINGCN7_90.P3
+040     LeaAnalog.V2
+040     ds1820_read1.temp2
+040     ds1820_read2.temp2
+040     ds1307_set_time.sec
+040     SaleCalor.RR
+040     @PSTRINGC7_90.@SCRATCH3
+040     Teclado.@SCRATCH3
+040     Pantalla.@SCRATCH3
+040     Calefa.@SCRATCH1
+041-042 ds1820_read1.temp3
+041     @PRINTF_D_90.P1
+041     @I2C_READ_1.P2
+041     @MUL88.P3
+041-042 ds1820_read2.temp3
+041     @PRINTF_D0_90.P1
+041     bin2bcd.binary_value
+041     ds1307_set_time.@SCRATCH1
+041     @PSTRINGC7_90.@SCRATCH4
+041     @PSTRINGCN7_90.@SCRATCH1
+042     @MUL88.P1
+042     bin2bcd.temp
+042     @PRINTF_L32D_90FPFPF.P1
+042     @I2C_WRITE_1.P2
+042     bcd2bin.bcd_value
+042     @I2C_READ_1.@SCRATCH1
+042     @PRINTF_D0_90.@SCRATCH1
+042     @PSTRINGCN7_90.@SCRATCH2
+042     @PRINTF_D_90.@SCRATCH1
+043-046 ds1820_read1.result
+043-046 ds1820_read2.result
+043     bcd2bin.temp
+043     bin2bcd.retval
+043     @I2C_READ_1.@SCRATCH2
+043     @PRINTF_L32D_90FPFPF.@SCRATCH1
+043     @PRINTF_D0_90.@SCRATCH2
+043     @PSTRINGCN7_90.@SCRATCH3
+043     @PRINTF_D_90.@SCRATCH2
+044     bcd2bin.@SCRATCH1
+044     @PRINTF_L32D_90FPFPF.@SCRATCH2
+044     @PRINTF_D0_90.@SCRATCH3
+044     @PSTRINGCN7_90.@SCRATCH4
+044     @PRINTF_D_90.@SCRATCH3
+045     @PRINTF_L32D_90FPFPF.@SCRATCH3
+045     @PRINTF_D0_90.@SCRATCH4
+045     @PRINTF_D_90.@SCRATCH4
+046     @DIV88.P1
+046     @PRINTF_L32D_90FPFPF.@SCRATCH4
+047-048 @SITOF.P1
+047     onewire2_write.data
+047     @DIV88.P1
+047     onewire1_read.count
+047     onewire1_write.data
+047     onewire2_read.count
+047     onewire1_reset.@SCRATCH1
+047     onewire2_reset.@SCRATCH1
+047     ds1820_read1.@SCRATCH1
+047     ds1820_read2.@SCRATCH1
+047     @PRINTF_L32D_90FPFPF.@SCRATCH5
+048     @delay_us1.P1
+048     onewire2_read.data
+048     onewire2_write.count
+048     onewire1_read.data
+048     onewire1_write.count
+048     ds1820_read1.@SCRATCH2
+048     ds1820_read2.@SCRATCH2
+048     @PRINTF_L32D_90FPFPF.@SCRATCH6
+048     @DIV88.@SCRATCH1
+049     ds1820_read1.@SCRATCH3
+049     ds1820_read2.@SCRATCH3
+049     @PRINTF_L32D_90FPFPF.@SCRATCH7
+04A     ds1820_read1.@SCRATCH4
+04A     ds1820_read2.@SCRATCH4
+04A     @PRINTF_L32D_90FPFPF.@SCRATCH8
+04B-04E @DIV3232.P1
+04B-04E @DIVFF.P2
+04B-04E @MULFF.P3
+04B     lcd_putc.c
+04B-04E @FTOSD.P1
+04C     lcd_gotoxy.x
+04C     @delay_ms1.P1
+04D     lcd_gotoxy.y
+04E     lcd_gotoxy.address
+04F-052 @DIV3232.P1
+04F-052 @MULFF.P2
+04F-052 @DIVFF.P3
+04F     lcd_gotoxy.@SCRATCH1
+04F     @FTOSD.@SCRATCH1
+050     lcd_send_byte.address
+051     lcd_send_byte.n
+052     lcd_read_byte.low
+052     lcd_send_byte.@SCRATCH1
+053     lcd_read_byte.high
+053     lcd_send_nibble.nibble
+053     @DIVFF.@SCRATCH1
+053     @MULFF.@SCRATCH1
+053     @DIV3232.@SCRATCH1
+054     lcd_read_nibble.retval
+054.0   lcd_read_nibble.retval_0
+054.1   lcd_read_nibble.retval_1
+054.2   lcd_read_nibble.retval_2
+054.3   lcd_read_nibble.retval_3
+054     lcd_read_byte.@SCRATCH1
+054     @DIVFF.@SCRATCH2
+054     @MULFF.@SCRATCH2
+054     @DIV3232.@SCRATCH2
+055     @DIVFF.@SCRATCH3
+055     @MULFF.@SCRATCH3
+055     @DIV3232.@SCRATCH3
+056     @DIVFF.@SCRATCH4
+056     @MULFF.@SCRATCH4
+056     @DIV3232.@SCRATCH4
+057     @DIVFF.@SCRATCH5
+057     @MULFF.@SCRATCH5
+057     @DIV3232.@SCRATCH5
+058     @DIVFF.@SCRATCH6
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000090  @delay_ms1
+0005CA  @delay_us1
+000004  LCD_INIT_STRING
+0000A4  lcd_send_nibble
+0000D8  lcd_read_nibble
+000107  lcd_read_byte
+000103  lcd_send_byte
+001011  lcd_init
+0001F5  lcd_gotoxy
+000207  lcd_putc
+0005D9  onewire1_reset
+0007DA  onewire2_reset
+0005F2  onewire1_write
+000C9C  onewire2_write
+00061A  onewire1_read
+000CC4  onewire2_read
+000CF1  ds1820_read1
+000643  @SITOF
+000668  @DIVFF
+000D70  ds1820_read2
+00018A  @I2C_READ_1
+000140  @I2C_WRITE_1
+0001E2  bin2bcd
+0001CF  bcd2bin
+00104A  ds1307_init
+0002EE  ds1307_set_time
+000E54  ds1307_get_time
+00124E  MAIN
+001000  Inicio
+00000C  @const207
+00022B  @PSTRINGC7_90
+000DDF  LeaAnalog
+000CED  LeaTemp
+000732  @SFTOI
+000276  SaleCalor
+0002E5  @goto10465
+000E54  Tiempo
+00033B  Teclado
+0005BE  @goto10635
+000A7D  Pantalla
+000814  @MULFF
+00089A  @FTOSD
+000751  @DIV3232
+000800  @PRINTF_L32D_90FPFPF
+0007A0  @DIV88
+00095F  @PRINTF_D0_90
+00000D  @const238
+000016  @const239
+00001F  @const240
+000028  @const241
+0009C2  @PSTRINGCN7_90
+000A1A  @PRINTF_D_90
+000031  @const247
+0007B5  @MUL88
+00003B  @const251
+000044  @const252
+00004F  @const253
+000058  @const254
+000063  @const255
+00006C  @const256
+000075  @const257
+00007E  @const258
+000087  @const259
+000C90  @goto10808
+000F39  Calefa
+000E29  Automa
+000EF7  Criticos
+000EDD  ShutDown
+000F48  Apagado
+00124E  @cinit1
+00125B  @cinit2
+02D1  defalut
+
+Project Directory:
+    D:\2.Datos\Electronica\Proyectos\Microchip\Proyecto Caldera\Soft\v2.0\
+
+Project Files:
+    main.c                                                  [21-may.-18 17:30  CRC=80036777]
+    C:\Program Files (x86)\PICC\devices\16f877A.h           [30-nov.-12 18:59  CRC=0E6649F1]
+    flex_lcd.c                                              [01-sep.-16 21:45  CRC=B12A4B7F]
+    1wire.c                                                 [03-jun.-16 19:25  CRC=11B016E1]
+    ds1820.c                                                [03-jun.-16 19:25  CRC=00DB94BF]
+    DS1307.c                                                [29-jun.-14 22:31  CRC=5D8B2A8F]
+
+Source signature=0D35FDA5
+
+Units:
+    main (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.PJT
+    Call Tree:   main.tre
+    Statistics:  main.STA

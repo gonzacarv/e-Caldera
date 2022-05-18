@@ -1,0 +1,5 @@
+>>> Warning 203 "D:\2.Datos\Electronica\Proyectos\Microchip\Proyecto Caldera\Soft\v2.0\DS1307.c" Line 19(1,1): Condition always TRUE
+>>> Warning 203 "main.c" Line 108(1,1): Condition always TRUE
+      Memory usage:   ROM=57%      RAM=10% - 17%
+      0 Errors,  2 Warnings.
+Build Successful.
